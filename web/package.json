@@ -1,0 +1,24 @@
+{
+  "name": "logorrhea-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "logorrhea frontend — React shell + PixiJS Logstalgia-style traffic visualization.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pixi.js": "^8.6.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
+  }
+}

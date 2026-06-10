@@ -1,0 +1,19 @@
+{
+  "name": "logorrhea-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "logorrhea backend — tails Traefik access logs (stern) and streams parsed request events over WebSocket to the React/Pixi viz.",
+  "scripts": {
+    "dev": "bun --watch index.ts",
+    "start": "bun index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "elysia": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.0",
+    "typescript": "^6.0.3"
+  }
+}
