@@ -99,6 +99,17 @@ namespace) and set `LOGORRHEA_*` env vars as needed.
 | `LOGORRHEA_NORMALIZE` | `1` | `0` = don't consolidate ids/hashes in paths |
 | `LOGORRHEA_MASSIVE_AT` | `250` | Events/frame beyond which grouping coarsens to status class + top-N |
 | `LOGORRHEA_TOP_GROUPS` | `40` | Lanes kept when grouping is coarsened |
+| `LOGORRHEA_STALE_MS` | `180000` | Feed-silence threshold: stern is respawned past it, and `/livez` returns 503 |
+
+## Health checks
+
+- `GET /healthz` — readiness; returns `ok` as soon as the process is up.
+- `GET /livez` — liveness; returns `503 stale` if no log line has arrived from
+  stern within `LOGORRHEA_STALE_MS`. A stern stream can die silently without the
+  process exiting, so the server also respawns stern on its own when the feed
+  goes quiet; `/livez` is the backstop that lets Kubernetes restart the pod if
+  in-process recovery fails. (In demo mode the feed is always "fresh", so
+  `/livez` stays green.)
 
 ## A note on exposure
 
